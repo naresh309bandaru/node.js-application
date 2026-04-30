@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-hotel"></i>
+            HotelHub
+        </div>
+        <div class="nav-links">
+            <a onclick="showPage('home')">Home</a>
+            <a onclick="showPage('bookings')">My Bookings</a>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="homePage">
+        <div class="hero">
+            <h1>Find Your Perfect Stay</h1>
+            <p>Best hotels at best prices</p>
+            <div class="search-box">
+                <input type="text" id="searchLocation" placeholder="Search by city...">
+                <button onclick="searchHotels()">Search</button>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="hotels-grid" id="hotelsGrid"></div>
+        </div>
+    </div>
+
+    <!-- Bookings Page -->
+    <div id="bookingsPage" style="display: none;">
+        <div class="container">
+            <h2>My Bookings</h2>
+            <div class="email-form">
+                <input type="email" id="emailInput" placeholder="Enter your email">
+                <button onclick="viewBookings()">View Bookings</button>
+            </div>
+            <div id="bookingsList"></div>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Book Hotel</h2>
+            <div id="modalHotelInfo"></div>
+            <form id="bookingForm">
+                <input type="text" id="customerName" placeholder="Full Name" required>
+                <input type="email" id="customerEmail" placeholder="Email" required>
+                <input type="date" id="checkIn" required>
+                <input type="date" id="checkOut" required>
+                <input type="number" id="guests" placeholder="Number of Guests" min="1" max="10" required>
+                <div class="total-price" id="totalPrice">Total: $0</div>
+                <button type="submit">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>
