@@ -1,8 +1,18 @@
-FROM node
-WORKDIR /app
-COPY package*.json ./
-RUN npm install 
-COPY . . 
-EXPOSE 3000
-CMD ["npm", "server.js"]
+FROM node:18-alpine
 
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy application code
+COPY . .
+
+# Expose port
+EXPOSE 5000
+
+# Run the application with node directly (not npm)
+CMD ["node", "server.js"]
